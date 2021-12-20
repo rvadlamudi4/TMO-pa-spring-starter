@@ -3,6 +3,7 @@ package com.galvanize.tmo.paspringstarter;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -23,11 +24,14 @@ public class LibraryHelperUtil {
         return bookList.size();
     }
 
-    public List<Map<String,Object>> getSortedMapList(){
+    public Map<String,Object> getSortedMapList(){
         LibraryHelperUtil.bookList.sort(new BookComparator());
 
         List<Map<String,Object>> bookMapList=
                 bookList.stream().map(Book::returnMap).collect(Collectors.toList());
-        return bookMapList;
+        Map<String,Object> bookMap=
+                new HashMap<String, Object>();
+        bookMap.put("books",bookMapList);
+        return bookMap;
     }
 }

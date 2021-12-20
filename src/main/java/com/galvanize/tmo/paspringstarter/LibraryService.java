@@ -23,7 +23,7 @@ public class LibraryService {
         util.deleteAllBooks();
     }
 
-    public List<Map<String, Object>> getOrderedBooks() {
+    public Map<String, Object> getOrderedBooks() {
         return util.getSortedMapList();
     }
 }

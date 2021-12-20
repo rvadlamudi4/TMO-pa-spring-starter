@@ -43,8 +43,8 @@ public class LibraryController {
     }
 
     @GetMapping("/api/books")
-    public ResponseEntity<List<Map<String, Object>>> getBookList(){
-        List<Map<String, Object>> bookList= service.getOrderedBooks();
+    public ResponseEntity<Map<String, Object>> getBookList(){
+        Map<String, Object> bookList= service.getOrderedBooks();
         return ResponseEntity.status(HttpStatus.OK).body(bookList);
     }
 
